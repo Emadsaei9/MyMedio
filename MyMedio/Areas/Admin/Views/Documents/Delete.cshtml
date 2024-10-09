@@ -1,0 +1,111 @@
+﻿@model DataLayer.Documents
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h3>آیا از حذف این مستنداد اطمینان دارید؟</h3>
+<div>
+
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Sick.NameBimar)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Sick.NameBimar)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HajmeTazrigh)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HajmeTazrigh)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GelzatTazrigh)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GelzatTazrigh)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NaghsJenetik)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NaghsJenetik)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NoeTazrigh)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NoeTazrigh)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Comision)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Comision)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ElatTzrigh)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ElatTzrigh)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SabegheGhabli)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SabegheGhabli)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SabegheDarman)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SabegheDarman)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SabegheFamily)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SabegheFamily)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SharhHal)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SharhHal)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="حذف" class="btn btn-danger" />
+
+        </div>
+
+    }
+</div>

@@ -1,0 +1,171 @@
+﻿@model IEnumerable<DataLayer.Documents>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>جدول تزریقات بیمار</h2>
+
+<p>
+    <button id="btnNewGroup" @*onclick="location.href='@Url.Action("Create", "Documents")'"*@ class="btn btn-success">
+        تزریق جدید
+    </button>
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Sick.NameBimar)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HajmeTazrigh)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GelzatTazrigh)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NaghsJenetik)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NoeTazrigh)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Comision)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ElatTzrigh)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SabegheGhabli)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SabegheDarman)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SabegheFamily)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SharhHal)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Sick.NameBimar)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HajmeTazrigh)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GelzatTazrigh)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NaghsJenetik)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NoeTazrigh)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Comision)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ElatTzrigh)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SabegheGhabli)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SabegheDarman)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SabegheFamily)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SharhHal)
+            </td>
+            <td>
+                <a class="btn btn-sm btn-warning" onclick="editGroup(@item.TazrighID)">
+                    <i class="glyphicon glyphicon-edit"></i>
+                </a>
+                <a class="btn btn-sm btn-danger" onclick="deleteGroup(@item.TazrighID)">
+                    <i class="glyphicon glyphicon-trash"></i>
+                </a>
+                <a class="btn btn-sm btn-bitbucket" onclick="detailGroup(@item.TazrighID)">
+                    <i class="glyphicon glyphicon-eye-open"></i>
+                </a>
+
+            </td>
+        </tr>
+    }
+
+</table>
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+            </div>
+            <div class="modal-body" id="myModalBody">
+
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<!--End Modal -->
+
+
+@section scripts
+{
+
+    <script src="~/Scripts/modal.js"></script>
+    <script>
+        $("#btnNewGroup").click(function () {
+
+            $.get("/Admin/Documents/Create", function (result) {
+
+                $("#myModal").modal();
+                $("#myModalLabel").html("افزودن  گروه جدید");
+                $("#myModalBody").html(result);
+            });
+
+        });
+
+        function editGroup(id) {
+            $.get("/Admin/Documents/Edit/" + id, function (result) {
+                $("#myModal").modal();
+                $("#myModalLabel").html("ویرایش گروه");
+                $("#myModalBody").html(result);
+            });
+        }
+
+
+        function deleteGroup(id) {
+            $.get("/Admin/Documents/Delete/" + id, function (result) {
+                $("#myModal").modal();
+                $("#myModalLabel").html("حذف گروه");
+                $("#myModalBody").html(result);
+            });
+        }
+        function detailGroup(id) {
+            $.get("/Admin/Documents/details/" + id, function (result) {
+                $("#myModal").modal();
+                $("#myModalLabel").html(" مشاهده");
+                $("#myModalBody").html(result);
+            });
+        }
+
+    </script>
+
+}
+
+<div class="form-group">
+    <div class="col-md-offset-2 col-md-10">
+        <button type="button" class="btn btn-warning" onclick="window.history.back();">بازگشت</button>
+    </div>
+</div>

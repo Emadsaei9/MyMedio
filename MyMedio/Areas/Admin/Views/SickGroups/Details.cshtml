@@ -1,0 +1,30 @@
+﻿@model DataLayer.SickGroup
+
+@{
+    ViewBag.Title = "Details";
+}
+
+@*<h2>جزئیات گروه </h2>*@
+
+<div>
+
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.GroupBimariTitle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GroupBimariTitle)
+        </dd>
+
+    </dl>
+    @*<div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="ویرایش" class="btn btn-danger" onclick="window.location.href='@Url.Action("Edit", "SickGroups", new { id = Model.GrohBimariID })';" />
+            |
+            <button type="button" class="btn btn-secondary" onclick="window.history.back();">بازگشت</button>
+        </div>
+    </div>*@
+
+</div>
+

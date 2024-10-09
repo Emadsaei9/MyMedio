@@ -1,0 +1,107 @@
+﻿@model DataLayer.Documents
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>جزئیات</h2>
+
+<div>
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Sick.NameBimar)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Sick.NameBimar)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HajmeTazrigh)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HajmeTazrigh)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GelzatTazrigh)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GelzatTazrigh)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NaghsJenetik)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NaghsJenetik)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NoeTazrigh)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NoeTazrigh)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Comision)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Comision)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ElatTzrigh)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ElatTzrigh)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SabegheGhabli)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SabegheGhabli)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SabegheDarman)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SabegheDarman)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SabegheFamily)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SabegheFamily)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SharhHal)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SharhHal)
+        </dd>
+
+    </dl>
+    @*<div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+
+            <input id="btnNewGroup" type="submit" value="ویرایش" class="btn btn-danger" onclick="window.location.href='@Url.Action("Edit", "Documents", new { id = Model.TazrighID })';" />
+        </div>
+    </div>*@
+</div>
+

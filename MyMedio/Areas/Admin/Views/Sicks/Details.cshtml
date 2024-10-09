@@ -1,0 +1,109 @@
+﻿@model DataLayer.Sick
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>جزئیات </h2>
+
+<div>
+    <h4>نمایش مشخصات بیمار </h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.SickGroup.GroupBimariTitle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SickGroup.GroupBimariTitle)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CreateDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreateDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NameBimar)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NameBimar)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FamilBimar)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FamilBimar)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Codemeli)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Codemeli)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NamePedar)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NamePedar)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Moteahel)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Moteahel)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Farzand)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Farzand)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TedadFarzand)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TedadFarzand)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RezayatName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RezayatName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ImageNameRezayat)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ImageNameRezayat)
+        </dd>
+
+    </dl>
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="ویرایش" class="btn btn-danger" onclick="window.location.href='@Url.Action("Edit", "Sicks", new { id = Model.BimarID })';" />
+            |
+            <button type="button" class="btn btn-secondary" onclick="window.history.back();">بازگشت</button>
+        </div>
+    </div>
+</div>

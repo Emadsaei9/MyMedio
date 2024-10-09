@@ -1,0 +1,118 @@
+﻿@model DataLayer.Sick
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>ثبت بیمار جدید</h2>
+
+
+@using (Html.BeginForm("create", "Sicks", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    
+<div class="form-horizontal">
+    <h4>لطفا مشخصات بیمار جدید را با انتخاب گروه بیماری ثبت کنید </h4>
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+     <div class="form-group">
+          @Html.LabelFor(model => model.GrohBimariID, htmlAttributes: new { @class = "control-label col-md-2" })
+          <div class="col-md-10">
+                @Html.DropDownListFor(model => model.GrohBimariID, (SelectList)ViewBag.GrohBimariID, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.GrohBimariID, "", new { @class = "text-danger" })
+    </div>
+</div>
+
+    @*<div class="form-group">
+        @Html.LabelFor(model => model.CreateDate, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.CreateDate, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.CreateDate, "", new { @class = "text-danger" })
+        </div>
+    </div>*@
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.NameBimar, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.NameBimar, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.NameBimar, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.FamilBimar, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.FamilBimar, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.FamilBimar, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Codemeli, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Codemeli, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Codemeli, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.NamePedar, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.NamePedar, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.NamePedar, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Moteahel, "Moteahel", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownList("Moteahel", ViewBag.Moteahel as IEnumerable<SelectListItem>, htmlAttributes: new { @class = "form-control" })
+            @*@Html.DropDownList("Moteahel", null, htmlAttributes: new { @class = "form-control" })*@
+            @Html.ValidationMessageFor(model => model.Moteahel, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Farzand, "Farzand", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownList("Farzand", null, htmlAttributes: new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.Farzand, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.TedadFarzand, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.TedadFarzand, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.TedadFarzand, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.RezayatName, "RezayatName", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownList("RezayatName", null, htmlAttributes: new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.RezayatName, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.ImageNameRezayat, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            <input type="file" name="imgUp" multiple accept="image/*" />
+            @Html.ValidationMessageFor(model => model.ImageNameRezayat, "", new { @class = "text-danger" })
+            @*@if (Model.ImageNameRezayat != null)
+            {
+                <img src="~/Images/@Model.ImageNameRezayat" class="thumbnail" style="max-width:150px" />
+            }*@
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="ایجاد" class="btn btn-success" />
+        </div>
+    </div>
+</div>
+}

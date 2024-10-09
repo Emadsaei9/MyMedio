@@ -1,0 +1,32 @@
+﻿@model DataLayer.SickGroup
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>آیا از حذف این گروه اطمینان دارید؟</h2>
+
+<div>
+
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.GroupBimariTitle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GroupBimariTitle)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+
+    <div class="form-actions no-color">
+        <input type="submit" value="حذف" class="btn btn-danger" />
+        @*<button type="button" class="btn btn-secondary" onclick="window.history.back();">بازگشت</button>*@
+
+    </div>
+    }
+</div>

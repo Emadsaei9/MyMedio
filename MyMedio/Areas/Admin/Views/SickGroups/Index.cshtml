@@ -1,0 +1,103 @@
+﻿@model IEnumerable<DataLayer.SickGroup>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>جدول گروه های بیماری</h2>
+
+<p>
+    <button id="btnNewGroup" @*onclick="location.href='@Url.Action("Create", "SickGroups")'"*@ class="btn btn-success">
+        افزودن گروه جدید
+    </button>
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.GroupBimariTitle)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.GroupBimariTitle)
+            </td>
+            <td>
+                <a class="btn btn-sm btn-warning" onclick="editGroup(@item.GrohBimariID)">
+                    <i class="glyphicon glyphicon-edit"></i>
+                </a>
+                <a class="btn btn-sm btn-danger" onclick="deleteGroup(@item.GrohBimariID)">
+                    <i class="glyphicon glyphicon-trash"></i>
+                </a>
+                <a class="btn btn-sm btn-default" href="@Url.Action("Index", "Sicks", new { GrohBimariID = item.GrohBimariID })">
+                    <i class="glyphicon glyphicon-eye-open"></i>
+                    
+
+
+            </td>
+        </tr>
+    }
+
+</table>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+            </div>
+            <div class="modal-body" id="myModalBody">
+
+            </div>
+        </div>
+    </div>
+</div>
+<!--End Modal -->
+
+@section scripts
+{
+   
+    <script src="~/Scripts/modal.js"></script>
+    <script>
+        $("#btnNewGroup").click(function () {
+
+            $.get("/Admin/SickGroups/Create", function (result) {
+
+                $("#myModal").modal();
+                $("#myModalLabel").html("افزودن  گروه جدید");
+                $("#myModalBody").html(result);
+            });
+
+        });
+
+        function editGroup(id) {
+            $.get("/Admin/SickGroups/Edit/" + id, function (result) {
+                $("#myModal").modal();
+                $("#myModalLabel").html("ویرایش گروه");
+                $("#myModalBody").html(result);
+            });
+        }
+
+
+        function deleteGroup(id) {
+            $.get("/Admin/SickGroups/Delete/" + id, function (result) {
+                $("#myModal").modal();
+                $("#myModalLabel").html("حذف گروه");
+                $("#myModalBody").html(result);
+            });
+        }
+
+        function detailGroup(id) {
+            $.get("/Admin/SickGroups/details/" + id, function (result) {
+                $("#myModal").modal();
+                $("#myModalLabel").html(" مشاهده");
+                $("#myModalBody").html(result);
+            });
+        }
+    </script>
+}
